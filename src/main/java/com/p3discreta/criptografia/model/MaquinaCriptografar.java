@@ -3,31 +3,40 @@ package com.p3discreta.criptografia.model;
 import com.p3discreta.criptografia.repository.LetraNum;
 
 public class MaquinaCriptografar {
+    
     public String criptografarEmPrimeiroGrau(String texto, int a, int b){
         texto = texto.toUpperCase();
         String textoCriptografado = "";
-        int index;
-        int newIndex;
+        int index = 0;
+        int newIndex = 0;
 
         for(int i = 0; i < texto.length(); i++){
-            index = LetraNum.alfabeto.indexOf(texto.charAt(i)); // Vê qual letra do texto corresponde a qual número do alfabeto, por exemplo, A = 0
-            newIndex = a*index + b; // criptografa
-
-            // Padrão de diferença que dava entre os testes com o nosso código e o código passado pelo professor
-            if(a != 1){
-                newIndex += (a - 1);
+            // Vê qual letra do texto corresponde a qual número do alfabeto, por exemplo, A = 1
+            for(LetraNum letraNum : LetraNum.alfabetoNumerado){
+                if(texto.charAt(i) == letraNum.letra){
+                    index = letraNum.num;
+                    break;
+                }
             }
+            
+            newIndex = a*index + b; // função que criptografa
 
             while(newIndex > 28){
                 newIndex -= 29;
             }
 
-            textoCriptografado += LetraNum.alfabeto.charAt(newIndex);
+            // Relaciona o novo index criptografaso com a letra do alfabeto
+            for(LetraNum letraNum : LetraNum.alfabetoNumerado){
+                if(letraNum.num == newIndex){
+                    textoCriptografado += letraNum.letra;
+                    break;
+                }
+            }
         }
 
         return textoCriptografado;
     }
-
+    
     public String criptografarEmSegundoGrau(String texto, int a, int b, int c){
         String textoCriptografado = "texto criptografado em 2 grau\"";
 
