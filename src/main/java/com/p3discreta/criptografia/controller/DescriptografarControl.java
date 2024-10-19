@@ -1,5 +1,7 @@
 package com.p3discreta.criptografia.controller;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,7 +12,7 @@ import com.p3discreta.criptografia.repository.mensagem;
 @RequestMapping
 public class DescriptografarControl {
    @GetMapping("/descriptografar")
-   public mensagem descriptografar(@RequestBody mensagem mensage){
+   public ResponseEntity descriptografar(@RequestBody mensagem mensage){
       MaquinaDescriptografar maquinaDescriptografar = new MaquinaDescriptografar();
       String mensagemDescriptografada = "";
       
@@ -23,6 +25,6 @@ public class DescriptografarControl {
          //mensagemDescriptografada = maquinaDescriptografar.descriptografarTerceiroGrau(mensage.texto(), mensage.a(), mensage.b(), mensage.c());
       }
 
-      return new mensagem(mensagemDescriptografada, mensage.id(), mensage.a(), mensage.b(), mensage.c());
+      return new ResponseEntity<>(new mensagem(mensagemDescriptografada, mensage.id(), mensage.a(), mensage.b(), mensage.c()), HttpStatus.OK);
    }
 }
