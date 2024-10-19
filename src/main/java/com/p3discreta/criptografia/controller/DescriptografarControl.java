@@ -5,10 +5,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.p3discreta.criptografia.model.MaquinaDescriptografar;
 import com.p3discreta.criptografia.repository.mensagem;
 
+@RestController
 @RequestMapping
 public class DescriptografarControl {
    @GetMapping("/descriptografar")
