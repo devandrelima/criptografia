@@ -11,6 +11,40 @@ public class LetraNum {
         this.num = num;
     }
 
+    public LetraNum(){}
+
+    public static LetraNum[] alfabetoNumeradoDescriptografado = { new LetraNum('A',0), 
+                                                        new LetraNum('B',0), 
+                                                        new LetraNum('C',0), 
+                                                        new LetraNum('D',0), 
+                                                        new LetraNum('E',0), 
+                                                        new LetraNum('F',0), 
+                                                        new LetraNum('G',0), 
+                                                        new LetraNum('H',0), 
+                                                        new LetraNum('I',0), 
+                                                        new LetraNum('J',0), 
+                                                        new LetraNum('K',0), 
+                                                        new LetraNum('L',0), 
+                                                        new LetraNum('M',0), 
+                                                        new LetraNum('N',0), 
+                                                        new LetraNum('O',0), 
+                                                        new LetraNum('P',0), 
+                                                        new LetraNum('Q',0), 
+                                                        new LetraNum('R',0), 
+                                                        new LetraNum('S',0), 
+                                                        new LetraNum('T',0), 
+                                                        new LetraNum('U',0), 
+                                                        new LetraNum('V',0), 
+                                                        new LetraNum('W',0), 
+                                                        new LetraNum('X',0), 
+                                                        new LetraNum('Y',0), 
+                                                        new LetraNum('Z',0), 
+                                                        new LetraNum('.',0), 
+                                                        new LetraNum(',',0), 
+                                                        new LetraNum(' ',0) };
+
+
+
     public static LetraNum[] alfabetoNumerado = { new LetraNum('A',1), 
                                                         new LetraNum('B',2), 
                                                         new LetraNum('C',3), 
