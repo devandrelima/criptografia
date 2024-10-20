@@ -21,7 +21,7 @@ public class MaquinaCriptografar {
             
             newIndex = a*index + b; // função que criptografa
 
-            while(newIndex > 28){
+            while(newIndex > 29){
                 newIndex -= 29;
             }
 
@@ -38,7 +38,34 @@ public class MaquinaCriptografar {
     }
     
     public String criptografarEmSegundoGrau(String texto, int a, int b, int c){
-        String textoCriptografado = "texto criptografado em 2 grau\"";
+        texto = texto.toUpperCase();
+        String textoCriptografado = "";
+        int index = 0;
+        int newIndex = 0;
+
+        for(int i = 0; i < texto.length(); i++){
+            // Vê qual letra do texto corresponde a qual número do alfabeto, por exemplo, A = 1
+            for(LetraNum letraNum : LetraNum.alfabetoNumerado){
+                if(texto.charAt(i) == letraNum.letra){
+                    index = letraNum.num;
+                    break;
+                }
+            }
+            
+            newIndex = (int) (a*Math.pow(index, 2) + b*index + c); // função que criptografa
+
+            while(newIndex > 29){
+                newIndex -= 29;
+            }
+
+            // Relaciona o novo index criptografaso com a letra do alfabeto
+            for(LetraNum letraNum : LetraNum.alfabetoNumerado){
+                if(letraNum.num == newIndex){
+                    textoCriptografado += letraNum.letra;
+                    break;
+                }
+            }
+        }
 
         return textoCriptografado;
     }
