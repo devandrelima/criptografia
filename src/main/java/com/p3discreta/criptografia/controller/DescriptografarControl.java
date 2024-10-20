@@ -19,7 +19,7 @@ public class DescriptografarControl {
       String mensagemDescriptografada = "";
       
       if(mensage.id() == 1){
-         //mensagemDescriptografada = maquinaDescriptografar.descriptografarEmPrimeiroGrau(mensage.texto(), mensage.a(), mensage.b());
+         mensagemDescriptografada = maquinaDescriptografar.descriptografarEmPrimeiroGrau(mensage.texto(), mensage.a(), mensage.b());
       } else if(mensage.id() == 2){
          mensagemDescriptografada = maquinaDescriptografar.descriptografarEmSegundoGrau(mensage.texto(), mensage.a(), mensage.b(), mensage.c());
       } else {

@@ -3,15 +3,21 @@ package com.p3discreta.criptografia.model;
 import com.p3discreta.criptografia.repository.LetraNum;
 
 public class MaquinaDescriptografar {
-/*
+
     public String descriptografarEmPrimeiroGrau(String texto, int a, int b){
         String textoDesriptografado = "";
         texto = texto.toUpperCase();
         int index = 0;
-        LetraNum letraNum = new LetraNum();
+        int j = 0;
 
-        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-        for(LetraNum let : letraNum.alfabetoNumeradoDescriptografado){
+        // Reinicializa vetor global para os valores default
+        for(LetraNum letraNum : LetraNum.alfabetoNumerado){
+            LetraNum.alfabetoNumeradoDescriptografado[j].num = letraNum.num;
+            j++;
+        }
+
+        // Cria vetor com gabarito dos indices e suas respectivas letras (chave)
+        for(LetraNum let : LetraNum.alfabetoNumeradoDescriptografado){
             let.num = (let.num*a) + b;
 
             while(let.num > 28){
@@ -22,15 +28,16 @@ public class MaquinaDescriptografar {
         }
 
         for(int i = 0; i < texto.length(); i++){
-            
-            for(LetraNum letraDescriptografada : letraNum.alfabetoNumeradoDescriptografado){
+            // Procura o número correspondente no alfabeto numerado
+            for(LetraNum letraDescriptografada : LetraNum.alfabetoNumerado){
                 if(texto.charAt(i) == letraDescriptografada.letra){
                     index = letraDescriptografada.num;
                     break;
                 }
             }
 
-            for(LetraNum let : letraNum.alfabetoNumeradoDescriptografado){
+            // Relaciona o alfabeto 
+            for(LetraNum let : LetraNum.alfabetoNumeradoDescriptografado){
                 if(let.num == index){
                     textoDesriptografado += let.letra;
                     break;
@@ -40,7 +47,7 @@ public class MaquinaDescriptografar {
 
         return textoDesriptografado;
     }
- */
+ 
     public String descriptografarEmSegundoGrau(String texto, int a, int b, int c){
         String textoDescriptografado = "texto descriptografado em 2 grau";
 
