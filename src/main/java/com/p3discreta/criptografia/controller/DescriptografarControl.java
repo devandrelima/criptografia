@@ -27,6 +27,6 @@ public class DescriptografarControl {
          //mensagemDescriptografada = maquinaDescriptografar.descriptografarTerceiroGrau(mensage.texto(), mensage.a(), mensage.b(), mensage.c());
       }
 
-      return new ResponseEntity<>(new mensagem(mensagemDescriptografada, mensage.id(), mensage.a(), mensage.b(), mensage.c()), HttpStatus.OK);
+      return new ResponseEntity<>(new mensagem(mensagemDescriptografada, mensage.id(), mensage.a(), mensage.b(), mensage.c(),mensage.textoEmNumero()), HttpStatus.OK);
    }
 }
