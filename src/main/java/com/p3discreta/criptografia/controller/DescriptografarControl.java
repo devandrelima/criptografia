@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.p3discreta.criptografia.model.MaquinaDescriptografar;
 import com.p3discreta.criptografia.repository.mensagem;
+import com.p3discreta.criptografia.repository.mensagemInterna;
 
 @RestController
 @RequestMapping
@@ -16,17 +17,17 @@ public class DescriptografarControl {
    @GetMapping("/descriptografar")
    public ResponseEntity descriptografar(@RequestBody mensagem mensage){
       MaquinaDescriptografar maquinaDescriptografar = new MaquinaDescriptografar();
-      String mensagemDescriptografada = "";
+      mensagemInterna menInt = new mensagemInterna(" ", null);
       
       if(mensage.id() == 1){
-         mensagemDescriptografada = maquinaDescriptografar.descriptografarEmPrimeiroGrau(mensage.texto(), mensage.a(), mensage.b());
+         menInt = maquinaDescriptografar.descriptografarEmPrimeiroGrau(mensage.textoEmNumero(), mensage.a(), mensage.b());
       } else if(mensage.id() == 2){
-         mensagemDescriptografada = maquinaDescriptografar.descriptografarEmSegundoGrau(mensage.texto(), mensage.a(), mensage.b(), mensage.c());
+         //mensagemDescriptografada = maquinaDescriptografar.descriptografarEmSegundoGrau(mensage.texto(), mensage.a(), mensage.b(), mensage.c());
       } else {
          // Do frontend, a = b = c = 1
          //mensagemDescriptografada = maquinaDescriptografar.descriptografarTerceiroGrau(mensage.texto(), mensage.a(), mensage.b(), mensage.c());
       }
 
-      return new ResponseEntity<>(new mensagem(mensagemDescriptografada, mensage.id(), mensage.a(), mensage.b(), mensage.c(),mensage.textoEmNumero()), HttpStatus.OK);
+      return new ResponseEntity<>(new mensagem(menInt.texto(), mensage.id(), mensage.a(), mensage.b(), mensage.c(),menInt.textoEmNumero()), HttpStatus.OK);
    }
 }
