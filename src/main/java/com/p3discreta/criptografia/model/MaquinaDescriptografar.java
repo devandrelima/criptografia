@@ -8,6 +8,12 @@ public class MaquinaDescriptografar {
         MaquinaDeConverter maquinaDeConverter = new MaquinaDeConverter();
         String textoDesriptografado;
         
+        // Mostra os números criptografados
+        System.out.println();
+        for(Integer n: textoEmNumero){
+            System.out.print(n + " - ");
+        }
+
         if(id == 1){
             // Descriptografa com a função inversa do 1° grau
             for(int i = 0; i < textoEmNumero.length; i++){
@@ -24,7 +30,7 @@ public class MaquinaDescriptografar {
             // Descriptografa com a inversa do 3° grau
         }
         
-        // Mostra os números criptografados
+        // Mostra os números descriptografados
         System.out.println();
         for(Integer n: textoEmNumero){
             System.out.print(n + " - ");

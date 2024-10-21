@@ -12,6 +12,7 @@ public class MaquinaCriptografar {
         String textoCriptografado;
 
         // Mostra o texto convertido em números antes de ser criptografado
+        System.out.println();
         for(Integer n: textoEmNumero){
             System.out.print(n + " - ");
         }
