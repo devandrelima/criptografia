@@ -25,11 +25,13 @@ public class MaquinaDescriptografar {
             for(int i = 0; i < textoEmNumero.length; i++){
                 double numeroDaLetra = textoEmNumero[i];
 
-                if(numeroDaLetra > 0){
+                if(numeroDaLetra >= 0){
                     textoEmNumero[i] =  (int) (((-1 * b) + Math.sqrt(b*b - 4*a*(c-numeroDaLetra)))/(2*a)); // Considerar o 'x' positivo
                 } else {
                     textoEmNumero[i] =  (int) (((-1 * b) - Math.sqrt(b*b - 4*a*(c-numeroDaLetra)))/(2*a)); // Considerar o 'x' negativo    
                 }
+
+                textoEmNumero[i] = Math.abs(textoEmNumero[i]);
             }
         
         } else{
