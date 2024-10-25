@@ -23,11 +23,23 @@ public class MaquinaDescriptografar {
         } else if(id == 2){
             // Descriptografa com a função inversa do 2° grau
             for(int i = 0; i < textoEmNumero.length; i++){
-                textoEmNumero[i] =  (int) ((-1 * b) + Math.sqrt(b*b - 4*a*(c-textoEmNumero[i])/(2*a))); // Considerar apenas x positivo
+                textoEmNumero[i] =  (int) (((-1 * b) + Math.sqrt(b*b - 4*a*(c-textoEmNumero[i])))/(2*a)); // Considerar apenas x positivo
             }
         
         } else{
             // Descriptografa com a inversa do 3° grau
+            for(int i = 0; i < textoEmNumero.length; i++){
+                double inputValue = textoEmNumero[i];
+                double sqrtPart = Math.sqrt(27 * inputValue * inputValue - 54 * inputValue + 31);
+                double innerPart = -9 * inputValue + Math.sqrt(3) * sqrtPart + 9;
+
+                double numerator = Math.pow(12, 1.0 / 3.0) * Math.pow(innerPart, 2.0 / 3.0) + 2 * Math.pow(18, 1.0 / 3.0);
+                double denominator = 6 * Math.pow(innerPart, 1.0 / 3.0);
+
+                double result = numerator / denominator;
+                
+                textoEmNumero[i] = (int) result; 
+            }
         }
         
         // Mostra os números descriptografados
