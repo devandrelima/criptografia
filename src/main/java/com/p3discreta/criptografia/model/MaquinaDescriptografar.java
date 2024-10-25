@@ -29,16 +29,16 @@ public class MaquinaDescriptografar {
         } else{
             // Descriptografa com a inversa do 3° grau
             for(int i = 0; i < textoEmNumero.length; i++){
-                double inputValue = textoEmNumero[i];
-                double sqrtPart = Math.sqrt(27 * inputValue * inputValue - 54 * inputValue + 31);
-                double innerPart = -9 * inputValue + Math.sqrt(3) * sqrtPart + 9;
+                double numeroDaLetra = textoEmNumero[i];
+                double raizQuadradaInterna = Math.sqrt(27 * numeroDaLetra * numeroDaLetra - 54 * numeroDaLetra + 31);
+                double equacaoDoParentesesCompleta = -9 * numeroDaLetra + Math.sqrt(3) * raizQuadradaInterna + 9;
 
-                double numerator = Math.pow(12, 1.0 / 3.0) * Math.pow(innerPart, 2.0 / 3.0) + 2 * Math.pow(18, 1.0 / 3.0);
-                double denominator = 6 * Math.pow(innerPart, 1.0 / 3.0);
+                double numerador = Math.pow(12, 1.0 / 3.0) * Math.pow(equacaoDoParentesesCompleta, 2.0 / 3.0) + 2 * Math.pow(18, 1.0 / 3.0);
+                double denominador = 6 * Math.pow(equacaoDoParentesesCompleta, 1.0 / 3.0);
 
-                double result = numerator / denominator;
+                double resultado = numerador / denominador;
                 
-                textoEmNumero[i] = (int) result; 
+                textoEmNumero[i] = (int) resultado; 
             }
         }
         
