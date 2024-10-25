@@ -32,6 +32,10 @@ public class MaquinaDeConverter {
         for(int i = 0; i < vetorNumero.length; i++){
             num = vetorNumero[i]; 
 
+            if(num < 0) {
+                num *=-1;
+            }
+
             while(num > 29){
                 num -= 29;
             }

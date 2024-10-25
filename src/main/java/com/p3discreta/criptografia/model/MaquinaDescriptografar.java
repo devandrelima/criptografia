@@ -23,7 +23,13 @@ public class MaquinaDescriptografar {
         } else if(id == 2){
             // Descriptografa com a função inversa do 2° grau
             for(int i = 0; i < textoEmNumero.length; i++){
-                textoEmNumero[i] =  (int) (((-1 * b) + Math.sqrt(b*b - 4*a*(c-textoEmNumero[i])))/(2*a)); // Considerar apenas x positivo
+                double numeroDaLetra = textoEmNumero[i];
+
+                if(numeroDaLetra > 0){
+                    textoEmNumero[i] =  (int) (((-1 * b) + Math.sqrt(b*b - 4*a*(c-numeroDaLetra)))/(2*a)); // Considerar o 'x' positivo
+                } else {
+                    textoEmNumero[i] =  (int) (((-1 * b) - Math.sqrt(b*b - 4*a*(c-numeroDaLetra)))/(2*a)); // Considerar o 'x' negativo    
+                }
             }
         
         } else{
