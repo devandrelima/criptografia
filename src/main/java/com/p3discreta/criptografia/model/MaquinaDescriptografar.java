@@ -24,14 +24,17 @@ public class MaquinaDescriptografar {
             // Descriptografa com a função inversa do 2° grau
             for(int i = 0; i < textoEmNumero.length; i++){
                 double numeroDaLetra = textoEmNumero[i];
+                
+                int primeiraRaiz = (int) (((-1 * b) + Math.sqrt(b*b - 4*a*(c-numeroDaLetra)))/(2*a)); // Considera a primeira raiz
+               
+                int segundaRaiz = (int) (((-1 * b) - Math.sqrt(b*b - 4*a*(c-numeroDaLetra)))/(2*a)); // Considerar a segunda raiz  
 
-                if(numeroDaLetra >= 0){
-                    textoEmNumero[i] =  (int) (((-1 * b) + Math.sqrt(b*b - 4*a*(c-numeroDaLetra)))/(2*a)); // Considerar o 'x' positivo
-                } else {
-                    textoEmNumero[i] =  (int) (((-1 * b) - Math.sqrt(b*b - 4*a*(c-numeroDaLetra)))/(2*a)); // Considerar o 'x' negativo    
-                }
-
-                textoEmNumero[i] = Math.abs(textoEmNumero[i]);
+                // A raiz escolhida é a maior
+               if(primeiraRaiz >= segundaRaiz) {
+                   textoEmNumero[i] = primeiraRaiz;
+               } else {
+                   textoEmNumero[i] = segundaRaiz;
+               }
             }
         
         } else{
