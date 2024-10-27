@@ -29,9 +29,9 @@ public class MaquinaCriptografar {
                 textoEmNumero[i] =  (int) (a * Math.pow(textoEmNumero[i], 2) + b * textoEmNumero[i] + c);
             }
         } else {
-            // Criptografa cada número com a equação do 3° grau f(x) = x^3 + x + 1
+            // Criptografa cada número com a equação do 3° grau f(x) = x^3 + x^2 + 1
             for(int i = 0; i < textoEmNumero.length; i++){
-                textoEmNumero[i] =  (int) (Math.pow(textoEmNumero[i], 3) + textoEmNumero[i] + 1);
+                textoEmNumero[i] =  (int) (Math.pow(textoEmNumero[i], 3) + Math.pow(textoEmNumero[i], 2) + 1);
             }
         }
         
